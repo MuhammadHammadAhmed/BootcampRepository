@@ -29,7 +29,7 @@ jobs:
         node-version: 12 
       #actions for yarn /npm
     - name: GitHub Action for Yarn or npm
-      uses: Borales/actions-yarn@v2.1.0
+      uses: borales/actions-yarn@v2.0.0
       with:
         #Ynpm Command
         cmd: npm install
