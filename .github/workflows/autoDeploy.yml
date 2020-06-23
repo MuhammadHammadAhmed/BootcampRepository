@@ -34,7 +34,7 @@ jobs:
         #Ynpm Command
         cmd: npm install
       #building the project using npm run  build command
-   - name: Creating Build
+    - name: Creating Build
       run:  npm run-script build --prefix ./expense-recoder/ run build
         
     # Runs a set of commands using the runners shell
