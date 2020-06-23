@@ -28,14 +28,13 @@ jobs:
       with:
         node-version: 12 
 
- name: GitHub Action for Yarn or npm
+- name: GitHub Action for Yarn or npm
       uses: Borales/actions-yarn@v2.1.0
       with:
-        #Yarn Command
         #Ynpm Command
         cmd: inpm install
   
-   name: Creating Build
+   - name: Creating Build
       run:  npm run-script build --prefix ./expense-recoder/ run build
         
     # Runs a set of commands using the runners shell
