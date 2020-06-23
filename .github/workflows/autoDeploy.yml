@@ -35,7 +35,7 @@ jobs:
         cmd: install # will run `yarn install` command
       #building the project using npm run  build command
     - name: Creating Build
-      run:  yarn --cwd /BootcampRepository\expense-recoder/   build
+      run:  yarn --cwd ./expense-recoder/   build
         
     # Runs a set of commands using the runners shell
     - name: Installing Surge
