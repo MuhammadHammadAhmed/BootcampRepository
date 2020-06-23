@@ -31,8 +31,8 @@ jobs:
     - name: GitHub Action for Yarn or npm
       uses: borales/actions-yarn@v2.0.0
       with:
-        #Ynpm Command
-        cmd: npm install
+        #yarn Command
+        cmd: install # will run `yarn install` command
       #building the project using npm run  build command
     - name: Creating Build
       run:  npm run-script build --prefix ./expense-recoder/ run build
