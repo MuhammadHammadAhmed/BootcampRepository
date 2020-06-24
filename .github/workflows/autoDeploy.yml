@@ -7,8 +7,6 @@ name: CI
 on:
   push:
     branches: [ master ]
-  pull_request:
-    branches: [ master ]
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -22,24 +20,22 @@ jobs:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
 
-    # Runs a single command using the runners shell
-    - name: Installing Node
+    - name: Setup Node.js environment
       uses: actions/setup-node@v2-beta
-      with:
-        node-version: 12 
-      #actions for yarn /npm
-    - name: GitHub Action for Yarn or npm
-      uses: borales/actions-yarn@v2.0.0
-      with:
-        #yarn Command
-        cmd: install # will run `yarn install` command
-      #building the project using npm run  build command
-    - name: Creating Build
-      run:  yarn --cwd ./expense-recoder/   build
+      with: 
+        version: 12
         
-    # Runs a set of commands using the runners shell
-    - name: Installing Surge
-      run: npm install --global surge
-    - name: deploying using surge
+    - name: GitHub Action for Yarn
+      uses: Borales/actions-yarn@v2.1.0
+      with:
+        # Yarn command
+        cmd: install # npm install/ yarn install
+    
+    - name: Creating build
+      run: yarn --cwd ./expense-recoder/ build
+    
+    - name: installing surge  
+      run: npm install -g surge
+    
+    - name: deploying on surge
       run: surge ./expense-recoder/build hammad-bootcamp.surge.sh/ --token ${{secrets.SURGE_TOKEN}}
-     
